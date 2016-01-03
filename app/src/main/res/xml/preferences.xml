@@ -1,0 +1,50 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Timing">
+        <EditTextPreference
+            android:id="@+id/shortDuration"
+            android:capitalize="words"
+            android:defaultValue="30"
+            android:dialogTitle="Short Duration(in minutes)"
+            android:inputType="numberDecimal"
+            android:key="shortDuration"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Short Task Timing" />
+        <EditTextPreference
+            android:id="@+id/longDuration"
+            android:capitalize="words"
+            android:defaultValue="60"
+            android:dialogTitle="Long Duration(in minutes)"
+            android:inputType="numberDecimal"
+            android:key="longDuration"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Long Task Timing" />
+        <EditTextPreference
+            android:id="@+id/snoozeDuration"
+            android:capitalize="words"
+            android:defaultValue="10"
+            android:dialogTitle="Snooze Duration(in minutes)"
+            android:inputType="numberDecimal"
+            android:key="snoozeDuration"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Snooze Timing" />
+    </PreferenceCategory>
+    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
+         dismiss it. -->
+    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
+
+    <PreferenceCategory
+        android:key="ringtone_option_preference"
+        android:title="Sound">
+        <RingtonePreference
+            android:key="ring_tone_pref"
+            android:ringtoneType="notification"
+            android:showSilent="true"
+            android:title="Notification Sound" />
+    </PreferenceCategory>
+</PreferenceScreen>

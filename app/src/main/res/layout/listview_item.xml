@@ -1,46 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_marginBottom="4dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:layout_marginTop="4dp"
+    android:background="@drawable/bg_card">
 
-    <TextView
-        android:id="@+id/remainingTime"
+    <RelativeLayout
+        android:id="@+id/timePack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:textSize="30sp"
-        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
 
-        android:text="Time Remaining : " />
+        <TextView
+            android:id="@+id/remainingTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="20dp"
+            android:text="Time"
+            android:textColor="@color/secondary_text"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/remainingTime"
+            android:layout_toRightOf="@id/remainingTime"
+            android:text="hdsvds"
+            android:textColor="@color/secondary_text"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/taskTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:text="Product Name"
-        android:textSize="15sp"
-        android:layout_marginLeft="20dp"
-        android:layout_below="@id/remainingTime"
-        android:textStyle="bold"
+        android:layout_below="@id/timePack"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
+
+        android:layout_marginLeft="20dp"
+        android:maxLines="1"
+        android:text="Product Name"
+
+        android:textColor="@color/primary_text"
+        android:textSize="25sp"
         />
     <ImageButton
+        android:id="@+id/doneButton"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="Done"
-        android:src="@android:drawable/ic_menu_delete"
-        android:id="@+id/doneButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="20dp"
-        android:background="@color/transparent"
-        android:tint="@color/black"
-        android:alpha="50"
         android:layout_alignParentEnd="true"
-        android:onClick="onDoneButtonClick"
-
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="3sp"
+        android:background="@null"
         android:clickable="false"
-        android:layout_marginRight="3sp" />
+        android:paddingBottom="10dp"
+        android:src="@drawable/ic_delete_grey"
+
+        android:text="Done"
+        android:tint="#20000000" />
 </RelativeLayout>

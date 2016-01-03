@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -15,7 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bagdi.test.todoTimer.db.TaskDatabase;
 
@@ -71,14 +69,12 @@ class CountdownAdapter extends ArrayAdapter<Task> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = lf.inflate(R.layout.listview_item, parent, false);
             holder.taskName = (TextView) convertView.findViewById(R.id.taskTextView);
-            holder.taskName.setTextColor(Color.BLACK);
             holder.remainingTime = (TextView) convertView.findViewById(R.id.remainingTime);
-            holder.remainingTime.setTextColor(Color.BLACK);
             convertView.setTag(holder);
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -102,7 +98,7 @@ class CountdownAdapter extends ArrayAdapter<Task> {
                 public void onClick(View v) {
                     RelativeLayout parent = (RelativeLayout) v.getParent();
                     final String taskDescription = ((TextView) parent.findViewById(R.id.taskTextView)).getText().toString();
-                    Toast.makeText(getContext(), "Button clicked:" + taskDescription, Toast.LENGTH_LONG).show();
+                    //  Toast.makeText(getContext(), "Button clicked:" + taskDescription, Toast.LENGTH_LONG).show();
                     TaskDatabase taskDatabase = new TaskDatabase(getContext());
                     taskDatabase.open();
                     Task task = null;
@@ -183,9 +179,9 @@ class ViewHolder {
             int seconds = (int) (timeDiff / 1000) % 60;
             int minutes = (int) ((timeDiff / (1000 * 60)) % 60);
             int hours = (int) ((timeDiff / (1000 * 60 * 60)) % 24);
-            remainingTime.setText(hours + " : " + minutes + " : " + seconds + " ");
+            remainingTime.setText(hours + " h " + minutes + "m");
         } else {
-            remainingTime.setText("Expired!!");
+            remainingTime.setText("0h 0m");
         }
     }
 }

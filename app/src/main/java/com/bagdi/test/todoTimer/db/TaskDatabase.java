@@ -84,8 +84,8 @@ public class TaskDatabase {
     }
 
     public  Task[] getAllTaskObjects() throws ParseException {
-        ArrayList<Task> tasks = new ArrayList<Task>();
-        Task task =null;
+        ArrayList<Task> tasks = new ArrayList<>();
+        Task task;
         Cursor cursor = getAll();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
@@ -102,11 +102,11 @@ public class TaskDatabase {
         return returnArray;
     }
     public Cursor getAll(){
-        Log.d(TAG,"getall");
-        ArrayList<Task>  tasks= new ArrayList<Task>();
+        Log.d(TAG, "getall");
+        ArrayList<Task> tasks = new ArrayList<>();
         Cursor cursor = database.query(TaskContract.TABLE, null,null, null, null, null,   "date("+TaskContract.Columns.DATETIME+")");
 
-        Log.d(TAG,"count:"+cursor.getCount());
+        Log.d(TAG, "count:" + cursor.getCount());
         return cursor;
     }
 
@@ -119,6 +119,14 @@ public class TaskDatabase {
         database.execSQL(sql);
     }
 
+    public void deleteById(int id) {
+        Log.d(TAG, "deleted by ID" + id);
+        String sql = String.format("DELETE FROM %s WHERE %s = '%s'",
+                TaskContract.TABLE,
+                TaskContract.Columns._ID,
+                String.valueOf(id));
+        database.execSQL(sql);
+    }
 
 
 }

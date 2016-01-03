@@ -8,9 +8,11 @@
     <string name="timepicker">Set Time</string>
     <string name="title_activity_message_display">MessageDisplay</string>
     <string name="title_activity_try1">TodoTimer</string>
-    <string name="done_add_task">Set</string>
+    <string name="done_add_task">Go</string>
     <string name="datepicker">Set Date</string>
     <string name="title_activity_settings">Settings</string>
+
+    <string name="taskDescriptionHint">Your task</string>
 
     <!-- Strings related to Settings -->
 
