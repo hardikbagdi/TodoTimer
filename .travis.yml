@@ -5,6 +5,8 @@ android:
     - platform-tools
     - android-23
     - extra-android-m2repository
+    - build-tools-23.0.2
+
 
 script:
    - ./gradlew assemble
